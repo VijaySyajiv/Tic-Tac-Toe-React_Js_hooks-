@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --cell-size: 100px;
+  --mark-size: 90px;
+}
+
+body {
+  background-image: linear-gradient(rgb(238, 120, 120), rgb(197, 114, 19));
+  margin: 0;
+}
+
+.board {
+  width: 80vw;
+  height: 80vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto)
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+  cursor: pointer;
+}
+
+.game-info{
+  margin-top: -100px;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  
+}
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.winning-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: .25em .5em;
+  cursor: pointer;
+}
+
+.winning-message button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.winning-message.show {
+  display: flex;
 }
